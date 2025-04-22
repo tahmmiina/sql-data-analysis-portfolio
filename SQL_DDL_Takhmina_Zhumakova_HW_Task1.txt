@@ -1,0 +1,33 @@
+Task 1. Figure out what security precautions are already used in your 'dvd_rental' database.  Prepare description
+
+SELECT rolname, rolsuper, rolcreaterole, rolcreatedb, rolcanlogin
+FROM pg_roles;
+
+---postgres has all privileges 
+
+SELECT grantee, privilege_type, table_name
+FROM information_schema.role_table_grants
+WHERE table_schema = 'public';
+--result:
+postgres	INSERT	all tables
+postgres	SELECT	all tables
+postgres	UPDATE	all tables
+postgres	DELETE	all tables
+postgres	TRUNCATE	all tables
+postgres	REFERENCES	all tables
+postgres	TRIGGER	all tables
+
+SELECT grantee, privilege_type
+FROM information_schema.role_table_grants
+WHERE grantee = 'PUBLIC';
+--result:
+--PUBLIC	SELECT
+--PUBLIC	update
+
+The `dvd_rental` database has some security measures in place. 
+There are system roles for monitoring, and the main `postgres` user 
+has full access to all tables. However, all users (through the `PUBLIC` role) 
+also have permission to view and update tables, which could be a security risk. 
+It's a good idea to limit public access and give permissions only to specific roles or users.
+
+

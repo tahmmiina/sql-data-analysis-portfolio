@@ -1,0 +1,19 @@
+
+
+Task 4. Prepare answers to the following questions
+
+How can one restrict access to certain columns of a database table?
+by giving acces to only one column instead of whole table
+
+What is the difference between user identification and user authentication?
+Identification = your name, Authentication = proof it's really you,password
+
+What are the recommended authentication protocols for PostgreSQL?
+PostgreSQL supports a variety of authentication methods, including password authentication, 
+certificate-based authentication, and external authentication via LDAP or Kerberos. 
+By default, PostgreSQL requires users to authenticate using a password.
+
+What is proxy authentication in PostgreSQL and what is it for? Why does it make the previously discussed role-based access control easier to implement?
+Proxy authentication means one user (like an app or admin) can connect to the database as another user. This is helpful because you don’t need separate 
+connections for every person. Instead, the app can just switch roles depending on who is using it. It makes role-based access control 
+easier because you can set up roles with the right permissions once, and the app can act as those roles when needed. It keeps things secure and simple.
