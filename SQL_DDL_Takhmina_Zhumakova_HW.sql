@@ -1,3 +1,8 @@
+CREATE DATABASE auction_house;
+
+-- Create schema if not exists
+CREATE SCHEMA IF NOT EXISTS auction_house_data;
+
 -- Create users table
 CREATE TABLE auction_house_data.users (
     user_id SERIAL PRIMARY KEY,
